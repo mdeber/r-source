@@ -48,4 +48,8 @@ mcmapply <-
            USE.NAMES = USE.NAMES)
 }
 
-mcMap <- function (f, ...) Map(f, ...)
+mcMap <- function (f, ...)
+{
+    f <- match.fun(f)
+    mcmapply(f, ..., SIMPLIFY = FALSE)
+}
